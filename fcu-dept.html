@@ -4,11 +4,104 @@
     <meta charset = "utf-8">
     <title>D0571783 FCU-dept</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script>
 
-    </script>
   </head>
   <body>
+    <h3>請選擇學院</h3>
+			<select id = "colleges-list"></select>
 
+		<h3>當你選擇學院後，下列選單會列出屬於該學院的所有科系</h3>
+			<select id = "depts-list"></select>
+
+    <script>
+
+        var colleges = ["商學院","工學院","資電學院","金融學院","人文社會學院","理學院","建築專業學院","國際科技與管理學院"];
+        var business = ["會計學系","國際經營與貿易學系","國際經營與貿易學系國際企業管理全英語學士班","財稅學系","合作經濟暨社會事業經營學系","統計學系","經濟學系","企業管理學系","行銷學系","國際企業管理學士學位學程(英語專班)","商學進修學士學位學程"];
+        var engineer = ["機械與電腦輔助工程學系","纖維與複合材料學系","工業工程與系統管理學系","化學工程學系","航太與系統工程學系","精密系統設計學士學位學程"];
+        var information = ["資訊工程學系","電機工程學系","電子工程學系","自動控制工程學系","通訊工程學系| 資電不分系榮譽班"];
+        var finance = ["風險管理與保險學系","財務金融學系","財務工程與精算學士學位學程 |金融碩士在職學位學程 |金融博士學位學程"];
+        var humanity = ["中國文學系","外國語文學系 |歷史與文物研究所","公共事務與社會創新研究所"];
+        var science = ["應用數學系","環境工程與科學學系","材料科學與工程學系","光電學系"];
+        var construct = ["建築專業學院學士班","建築學士學位學程","室內設計學士學位學程","室內設計進修學士班","創新設計學士學位學程","建築碩士學位學程","建築碩士在職學位學程"];
+        var inernation = ["澳洲墨爾本皇家理工大學商學與創新雙學士學位學程","美國聖荷西州立大學商學大數據分析雙學士學位學程","美國普渡大學電機資訊雙學士學位學程","國際經營管理碩士學位學程"];
+
+        $("#depts-list").empty();
+        for(var i = 0; i < business.length; i++){
+          $("#depts-list").append("<option value =" +i+ ">" + business[i]+ "</option>");
+        }
+
+        for(var i = 0; i < colleges.length; i++){
+          $("#colleges-list").append("<option value = " +i+ ">" +colleges[i]+ "</option>");
+        }
+
+        $("#colleges-list").change(function(){
+          var selected_value = $("#colleges-list").val();
+          switch (selected_value){
+            case "0":{
+              $("#depts-list").empty();
+              for(var i = 0; i < business.length; i++){
+                $("#depts-list").append("<option value =" +i+ ">" + business[i]+ "</option>");
+              }
+              break;
+            }
+
+            case '1':{
+              $("#depts-list").empty();
+              for(i = 0; i < engineer.length; i++){
+                $("#depts-list").append("<option value = " +i+ ">"+ engineer[i]+ "</option>");
+              }
+              break;
+            }
+
+            case '2':{
+              $("#depts-list").empty();
+              for(i = 0; i < information.length; i++){
+                $("#depts-list").append("<option value = " +i+ ">" + information[i]+ "</option>");
+              }
+              break;
+            }
+
+            case '3':{
+              $("#depts-list").empty();
+              for(i = 0; i < finance.length; i++){
+                $("#depts-list").append("<option value =" +i+ ">" + finance[i]+ "</option>");
+              }
+              break;
+            }
+
+            case '4':{
+              $("#depts-list").empty();
+              for(i = 0; i < humanity.length; i++){
+                $("#depts-list").append("<option value =" +i+ ">" + humanity[i]+ "</option>");
+              }
+              break;
+            }
+
+            case '5':{
+              $("#depts-list").empty();
+              for(i = 0; i < science.length; i++){
+                $("#depts-list").append("<option value =" +i+ ">" + science[i]+ "</option>");
+              }
+              break;
+            }
+
+            case '6':{
+              $("#depts-list").empty();
+              for(i = 0; i < construct.length; i++){
+                $("#depts-list").append("<option value =" +i+ ">" + construct[i]+ "</option>");
+              }
+              break;
+            }
+
+            case '7':{
+              $("#depts-list").empty();
+              for(i = 0; i < inernation.length; i++){
+                $("#depts-list").append("<option value =" +i+ ">" + inernation[i]+ "</option>");
+              }
+              break;
+            }
+          }
+        })
+    </script>
   </body>
 </html>
